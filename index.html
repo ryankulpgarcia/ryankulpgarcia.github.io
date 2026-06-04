@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prama Intel | Private Investigations & Security Services – Cleveland, OH</title>
+  <meta name="description" content="Prama Intel – Licensed private investigation &amp; security services firm based in Cleveland, Ohio. Surveillance, background checks, security consulting, corporate intelligence, and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --yellow: #F5C518;
+      --yellow-light: #FDE97A;
+      --yellow-dark: #C49A00;
+      --black: #0D0D0D;
+      --charcoal: #1A1A1A;
+      --mid: #2E2E2E;
+      --muted: #777;
+      --white: #FAFAF5;
+      --section-pad: 96px 5vw;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 5vw;
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(245,197,24,0.15);
+      transition: all 0.3s;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      color: var(--yellow);
+      text-decoration: none;
+    }
+    .logo span { color: var(--white); font-weight: 400; }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(245,197,24,0.3));
+    }
+    .logo-wrap {
+      display: flex; align-items: center; gap: 12px; text-decoration: none;
+    }
+    .logo-text-block { display: flex; flex-direction: column; line-height: 1.1; }
+    .logo-text-block .logo-main {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900; letter-spacing: 0.04em;
+      color: var(--yellow);
+    }
+    .logo-text-block .logo-sub {
+      font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(250,250,245,0.55); font-family: 'DM Sans', sans-serif;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 36px; }
+    nav ul a {
+      color: var(--white); text-decoration: none;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      opacity: 0.8; transition: opacity 0.2s, color 0.2s;
+    }
+    nav ul a:hover { opacity: 1; color: var(--yellow); }
+    .nav-cta {
+      background: var(--yellow); color: var(--black) !important;
+      padding: 10px 22px; border-radius: 2px;
+      font-weight: 500 !important; opacity: 1 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--yellow-light) !important; }
+
+    /* hamburger */
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .ham span { width: 26px; height: 2px; background: var(--white); display: block; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 140px 5vw 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 70% 50%, rgba(245,197,24,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(245,197,24,0.04) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(245,197,24,0.04) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(245,197,24,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position: relative; max-width: 760px; }
+    .hero-tag {
+      display: inline-block;
+      border: 1px solid var(--yellow);
+      color: var(--yellow);
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 6px 16px; margin-bottom: 28px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 900; line-height: 1.08;
+      margin-bottom: 28px;
+    }
+    h1 em { color: var(--yellow); font-style: normal; }
+    .hero-sub {
+      font-size: 1.1rem; line-height: 1.7;
+      color: rgba(250,250,245,0.7);
+      max-width: 520px; margin-bottom: 44px;
+    }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--yellow); color: var(--black);
+      padding: 16px 36px; border-radius: 2px;
+      font-weight: 500; font-size: 0.95rem; letter-spacing: 0.05em;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--yellow-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(250,250,245,0.3); color: var(--white);
+      padding: 16px 36px; border-radius: 2px;
+      font-size: 0.95rem; letter-spacing: 0.05em;
+      text-decoration: none; transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--yellow); color: var(--yellow); transform: translateY(-2px); }
+
+    .hero-stats {
+      position: absolute; right: 5vw; bottom: 80px;
+      display: flex; gap: 48px;
+    }
+    .stat { text-align: right; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--yellow); line-height: 1; }
+    .stat-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--yellow);
+      padding: 18px 5vw;
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--black);
+    }
+    .trust-item svg { flex-shrink: 0; }
+
+    /* ── SECTION SHARED ── */
+    section { padding: var(--section-pad); }
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-sub {
+      color: rgba(250,250,245,0.6);
+      font-size: 1rem; line-height: 1.7;
+      max-width: 540px; margin-bottom: 56px;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--charcoal); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2px;
+    }
+    .service-card {
+      background: var(--mid);
+      padding: 40px 36px;
+      border-top: 3px solid transparent;
+      transition: border-color 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute; bottom: 0; right: 0;
+      width: 60px; height: 60px;
+      background: var(--yellow);
+      opacity: 0.04;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      transition: opacity 0.2s;
+    }
+    .service-card:hover { border-color: var(--yellow); transform: translateY(-4px); }
+    .service-card:hover::after { opacity: 0.12; }
+    .service-icon {
+      width: 44px; height: 44px;
+      background: rgba(245,197,24,0.1);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+      color: var(--yellow);
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .service-card p { font-size: 0.9rem; line-height: 1.65; color: rgba(250,250,245,0.6); }
+
+    /* ── ABOUT ── */
+    #about {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center;
+    }
+    .about-img {
+      position: relative;
+    }
+    .about-img-box {
+      background: var(--mid);
+      height: 480px;
+      position: relative;
+      border: 1px solid rgba(245,197,24,0.1);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .about-img-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(245,197,24,0.06) 0%, transparent 70%);
+    }
+    .about-img-icon { color: rgba(245,197,24,0.15); }
+    .about-badge {
+      position: absolute; bottom: -24px; right: -24px;
+      background: var(--yellow); color: var(--black);
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 900; text-align: center;
+    }
+    .about-badge .big { font-size: 2rem; line-height: 1; }
+    .about-badge .sm { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .about-text h2 { margin-bottom: 24px; }
+    .about-text p { color: rgba(250,250,245,0.65); line-height: 1.75; font-size: 0.95rem; margin-bottom: 20px; }
+    .about-list { list-style: none; margin: 28px 0 36px; }
+    .about-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 0.9rem; color: rgba(250,250,245,0.75);
+      padding: 10px 0; border-bottom: 1px solid rgba(250,250,245,0.06);
+    }
+    .about-list li svg { color: var(--yellow); flex-shrink: 0; margin-top: 2px; }
+
+    /* ── PROCESS ── */
+    #process { background: var(--charcoal); }
+    .process-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+      margin-top: 60px; position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 36px; left: 12.5%; right: 12.5%;
+      height: 1px; background: rgba(245,197,24,0.2);
+    }
+    .step { padding: 0 24px; text-align: center; }
+    .step-num {
+      width: 72px; height: 72px;
+      border: 2px solid var(--yellow);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--yellow);
+      margin: 0 auto 24px;
+      background: var(--charcoal);
+      position: relative; z-index: 1;
+    }
+    .step h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; margin-bottom: 12px;
+    }
+    .step p { font-size: 0.85rem; line-height: 1.65; color: rgba(250,250,245,0.55); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px;
+      margin-top: 56px;
+    }
+    .testimonial {
+      background: var(--charcoal);
+      padding: 36px;
+      border-left: 3px solid var(--yellow);
+      position: relative;
+    }
+    .testimonial::before {
+      content: '"';
+      font-family: 'Playfair Display', serif;
+      font-size: 6rem; line-height: 1;
+      color: rgba(245,197,24,0.1);
+      position: absolute; top: 10px; right: 24px;
+    }
+    .testimonial p {
+      font-size: 0.92rem; line-height: 1.75;
+      color: rgba(250,250,245,0.75);
+      margin-bottom: 24px; font-style: italic;
+    }
+    .testimonial-author { font-weight: 500; font-size: 0.85rem; color: var(--yellow); }
+    .testimonial-role { font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--charcoal); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+    .contact-info h2 { margin-bottom: 20px; }
+    .contact-info p { color: rgba(250,250,245,0.6); line-height: 1.75; margin-bottom: 40px; }
+    .contact-detail {
+      display: flex; align-items: flex-start; gap: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-detail-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(245,197,24,0.1);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--yellow);
+    }
+    .contact-detail-text strong { display: block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .contact-detail-text span { font-size: 0.95rem; }
+    .contact-detail-text a { color: var(--white); text-decoration: none; }
+    .contact-detail-text a:hover { color: var(--yellow); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 18px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .field input, .field select, .field textarea {
+      background: var(--mid); border: 1px solid rgba(250,250,245,0.08);
+      color: var(--white); padding: 14px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.95rem;
+      border-radius: 2px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--yellow); }
+    .field textarea { resize: vertical; min-height: 120px; }
+    .field select option { background: var(--mid); }
+    .form-note { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      padding: 64px 5vw 32px;
+      border-top: 1px solid rgba(245,197,24,0.1);
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer-brand .logo { font-size: 1.3rem; display: block; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; color: rgba(250,250,245,0.45); max-width: 260px; }
+    .footer-col h4 {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--yellow); margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { color: rgba(250,250,245,0.5); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--yellow); }
+    .footer-bottom {
+      border-top: 1px solid rgba(250,250,245,0.06);
+      padding-top: 28px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 0.8rem; color: rgba(250,250,245,0.3);
+    }
+    .footer-bottom a { color: rgba(250,250,245,0.3); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--yellow); }
+    .disclaimer {
+      background: var(--mid); padding: 20px 5vw;
+      font-size: 0.75rem; line-height: 1.6;
+      color: rgba(250,250,245,0.3); text-align: center;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav ul { display: none; }
+      .ham { display: flex; }
+      #hero { padding-top: 120px; }
+      .hero-stats { position: static; margin-top: 48px; flex-wrap: wrap; }
+      #about { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-box { height: 300px; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .process-steps::before { display: none; }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .trust-bar { gap: 20px; }
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* mobile nav */
+    #mobile-nav {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: var(--black);
+      flex-direction: column; align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    #mobile-nav.open { display: flex; }
+    #mobile-nav a {
+      color: var(--white); text-decoration: none;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      transition: color 0.2s;
+    }
+    #mobile-nav a:hover { color: var(--yellow); }
+    #mobile-nav .close-btn {
+      position: absolute; top: 24px; right: 5vw;
+      font-size: 2rem; cursor: pointer; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <span class="close-btn" onclick="closeMobileNav()">✕</span>
+  <a href="#services" onclick="closeMobileNav()">Services</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#process" onclick="closeMobileNav()">Our Process</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo-wrap">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNDbGlwIj4KICAgICAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+CgogIDwhLS0gQmFja2dyb3VuZCBjaXJjbGUgLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5OSIgZmlsbD0iIzBEMEQwRCIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgoKICA8IS0tIFJhZGlhdGluZyByYXlzIC0tPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjaXJjQ2xpcCkiIHN0cm9rZT0iI0Y1QzUxOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNzUiPgogICAgPGxpbmUgeDE9IjEwMC4wIiB5MT0iNDIuMCIgeDI9IjEwMC4wIiB5Mj0iMTIuMCIvPgogICAgPGxpbmUgeDE9IjExNS4wIiB5MT0iNDQuMCIgeDI9IjEyMi44IiB5Mj0iMTUuMCIvPgogICAgPGxpbmUgeDE9IjEyOS4wIiB5MT0iNDkuOCIgeDI9IjE0NC4wIiB5Mj0iMjMuOCIvPgogICAgPGxpbmUgeDE9IjE0MS4wIiB5MT0iNTkuMCIgeDI9IjE2Mi4yIiB5Mj0iMzcuOCIvPgogICAgPGxpbmUgeDE9IjE1MC4yIiB5MT0iNzEuMCIgeDI9IjE3Ni4yIiB5Mj0iNTYuMCIvPgogICAgPGxpbmUgeDE9IjE1Ni4wIiB5MT0iODUuMCIgeDI9IjE4NS4wIiB5Mj0iNzcuMiIvPgogICAgPGxpbmUgeDE9IjE1OC4wIiB5MT0iMTAwLjAiIHgyPSIxODguMCIgeTI9IjEwMC4wIi8+CiAgICA8bGluZSB4MT0iMTU2LjAiIHkxPSIxMTUuMCIgeDI9IjE4NS4wIiB5Mj0iMTIyLjgiLz4KICAgIDxsaW5lIHgxPSIxNTAuMiIgeTE9IjEyOS4wIiB4Mj0iMTc2LjIiIHkyPSIxNDQuMCIvPgogICAgPGxpbmUgeDE9IjE0MS4wIiB5MT0iMTQxLjAiIHgyPSIxNjIuMiIgeTI9IjE2Mi4yIi8+CiAgICA8bGluZSB4MT0iMTI5LjAiIHkxPSIxNTAuMiIgeDI9IjE0NC4wIiB5Mj0iMTc2LjIiLz4KICAgIDxsaW5lIHgxPSIxMTUuMCIgeTE9IjE1Ni4wIiB4Mj0iMTIyLjgiIHkyPSIxODUuMCIvPgogICAgPGxpbmUgeDE9IjEwMC4wIiB5MT0iMTU4LjAiIHgyPSIxMDAuMCIgeTI9IjE4OC4wIi8+CiAgICA8bGluZSB4MT0iODUuMCIgeTE9IjE1Ni4wIiB4Mj0iNzcuMiIgeTI9IjE4NS4wIi8+CiAgICA8bGluZSB4MT0iNzEuMCIgeTE9IjE1MC4yIiB4Mj0iNTYuMCIgeTI9IjE3Ni4yIi8+CiAgICA8bGluZSB4MT0iNTkuMCIgeTE9IjE0MS4wIiB4Mj0iMzcuOCIgeTI9IjE2Mi4yIi8+CiAgICA8bGluZSB4MT0iNDkuOCIgeTE9IjEyOS4wIiB4Mj0iMjMuOCIgeTI9IjE0NC4wIi8+CiAgICA8bGluZSB4MT0iNDQuMCIgeTE9IjExNS4wIiB4Mj0iMTUuMCIgeTI9IjEyMi44Ii8+CiAgICA8bGluZSB4MT0iNDIuMCIgeTE9IjEwMC4wIiB4Mj0iMTIuMCIgeTI9IjEwMC4wIi8+CiAgICA8bGluZSB4MT0iNDQuMCIgeTE9Ijg1LjAiIHgyPSIxNS4wIiB5Mj0iNzcuMiIvPgogICAgPGxpbmUgeDE9IjQ5LjgiIHkxPSI3MS4wIiB4Mj0iMjMuOCIgeTI9IjU2LjAiLz4KICAgIDxsaW5lIHgxPSI1OS4wIiB5MT0iNTkuMCIgeDI9IjM3LjgiIHkyPSIzNy44Ii8+CiAgICA8bGluZSB4MT0iNzEuMCIgeTE9IjQ5LjgiIHgyPSI1Ni4wIiB5Mj0iMjMuOCIvPgogICAgPGxpbmUgeDE9Ijg1LjAiIHkxPSI0NC4wIiB4Mj0iNzcuMiIgeTI9IjE1LjAiLz4KICA8L2c+CgogIDwhLS0gVHJpYW5nbGUgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIxMDAsMjggMTYyLDEzOCAzOCwxMzgiIGZpbGw9IiMwRDBEMEQiIHN0cm9rZT0iI0Y1QzUxOCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgPCEtLSBFeWUgd2hpdGVzIC0tPgogIDxwYXRoIGQ9Ik02NSw5NSBRMTAwLDY1IDEzNSw5NSBRMTAwLDEyNSA2NSw5NSBaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjEiLz4KCiAgPCEtLSBJcmlzIC0tPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9Ijk1IiByPSIxNiIgZmlsbD0iIzBEMEQwRCIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjEuMiIvPgoKICA8IS0tIFB1cGlsIC0tPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9Ijk1IiByPSI4IiBmaWxsPSIjRjVDNTE4Ii8+CgogIDwhLS0gSXJpcyBkZXRhaWwgLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iOTUiIHI9IjExLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y1QzUxOCIgc3Ryb2tlLXdpZHRoPSIwLjciIG9wYWNpdHk9IjAuNSIvPgoKICA8IS0tIEhpZ2hsaWdodCAtLT4KICA8Y2lyY2xlIGN4PSI5NSIgY3k9IjkwIiByPSIyLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjYiLz4KCiAgPCEtLSBPdXRlciByaW5ncyAtLT4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9Ijk5IiBmaWxsPSJub25lIiBzdHJva2U9IiNGNUM1MTgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjAuNSIgb3BhY2l0eT0iMC40Ii8+Cjwvc3ZnPg==" alt="Prama Intel Logo" class="logo-img"/>
+    <div class="logo-text-block">
+      <span class="logo-main">PRAMA<span style="color:var(--white);font-weight:400">INTEL</span></span>
+      <span class="logo-sub">Private Investigations &amp; Security</span>
+    </div>
+  </a>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#contact" class="nav-cta">Free Consultation</a></li>
+  </ul>
+  <div class="ham" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Licensed Private Investigations &amp; Security Services · Cleveland, OH</div>
+    <h1>Truth is<br/><em>Our Only</em><br/>Business.</h1>
+    <p class="hero-sub">Prama Intel delivers discreet, professional private investigation and security services across Northeast Ohio. When the answers matter — and when your safety is at stake — you need someone you can trust.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Consultation</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Confidential</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Availability</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">OH</div>
+      <div class="stat-label">Licensed</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    Licensed & Insured
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+    24/7 Surveillance
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    Strict Confidentiality
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+    Cleveland-Based
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+    Court-Admissible Evidence
+  </div>
+  <div class="trust-item">
+    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    Security Services
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label fade-up">What We Do</div>
+  <h2 class="fade-up">Investigation &amp; Security Services</h2>
+  <p class="section-sub fade-up">From personal matters to complex corporate cases — and from threat assessment to executive protection — Prama Intel handles every engagement with precision and discretion.</p>
+  <div class="services-grid">
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </div>
+      <h3>Surveillance</h3>
+      <p>Stationary and mobile surveillance using industry-standard equipment. Video and photographic documentation for personal, legal, or insurance matters.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <h3>Background Checks</h3>
+      <p>Comprehensive background investigations on individuals — employment history, criminal records, civil history, assets, and more.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </div>
+      <h3>Infidelity Investigations</h3>
+      <p>Discreet, compassionate investigations for suspected spousal or partner infidelity. All findings documented with care and confidentiality.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      </div>
+      <h3>Corporate Investigations</h3>
+      <p>Employee misconduct, intellectual property theft, competitor intelligence, vendor fraud, and workplace investigation services for businesses.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <h3>Legal Support & Skip Tracing</h3>
+      <p>Process service, witness location, missing persons, and asset location for attorneys, law firms, and individuals pursuing legal action.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Insurance Fraud</h3>
+      <p>Claimant surveillance and investigation for insurance companies and attorneys to detect fraudulent workers' comp, disability, and liability claims.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Child Custody Investigations</h3>
+      <p>Documentation of parental fitness, lifestyle observations, and evidence gathering for family court proceedings. Sensitive and professional handling.</p>
+    </div>
+    <div class="service-card fade-up">
+      <div class="service-icon">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="3" y1="3" x2="6" y2="6"/></svg>
+      </div>
+      <h3>Digital & OSINT Investigations</h3>
+      <p>Open-source intelligence gathering, social media investigations, and digital footprint analysis for online harassment, fraud, or identity verification.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <div class="about-img-box">
+      <svg class="about-img-icon" width="120" height="120" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <div class="about-badge">
+        <span class="big">PI</span>
+        <span class="sm">Certified</span>
+      </div>
+    </div>
+  </div>
+  <div class="about-text">
+    <div class="section-label fade-up">About Prama Intel</div>
+    <h2 class="fade-up">Cleveland's Trusted Investigative &amp; Security Partner</h2>
+    <p class="fade-up">Prama Intel — a trade name of RWKG LLC — is a professional private investigation and security services firm serving Cleveland, Northeast Ohio, and surrounding regions. We combine modern investigative techniques with proven security practices to deliver the answers and protection you need.</p>
+    <p class="fade-up">Whether you're an individual facing a personal dilemma, a business dealing with internal misconduct, or an attorney building a case — our team operates with integrity, confidentiality, and a commitment to results.</p>
+    <ul class="about-list">
+      <li class="fade-up">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Ohio Licensed &amp; Fully Insured Private Investigator &amp; Security Firm
+      </li>
+      <li class="fade-up">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Strict attorney-client style confidentiality on every case
+      </li>
+      <li class="fade-up">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Court-admissible evidence and documentation
+      </li>
+      <li class="fade-up">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Serving all of Northeast Ohio and available nationwide
+      </li>
+      <li class="fade-up">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Free initial consultation — no obligation
+      </li>
+    </ul>
+    <a href="#contact" class="btn-primary fade-up">Speak Confidentially</a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div style="text-align:center">
+    <div class="section-label fade-up">How It Works</div>
+    <h2 class="fade-up">Our Investigation Process</h2>
+    <p class="section-sub fade-up" style="margin:0 auto 0">Simple, transparent, and discreet from first contact to final report.</p>
+  </div>
+  <div class="process-steps">
+    <div class="step fade-up">
+      <div class="step-num">01</div>
+      <h3>Free Consultation</h3>
+      <p>Reach out by phone or form. We listen, assess your situation, and outline an investigative strategy — with zero commitment.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">02</div>
+      <h3>Case Planning</h3>
+      <p>We design a tailored investigation plan, define scope, timeline, and budget, and you approve before anything begins.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">03</div>
+      <h3>Active Investigation</h3>
+      <p>Our licensed investigators conduct fieldwork, surveillance, research, and evidence gathering with full discretion.</p>
+    </div>
+    <div class="step fade-up">
+      <div class="step-num">04</div>
+      <h3>Detailed Report</h3>
+      <p>You receive a comprehensive report with documented findings, timestamped evidence, and clear conclusions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label fade-up">Client Reviews</div>
+  <h2 class="fade-up">What Our Clients Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial fade-up">
+      <p>Prama Intel handled my situation with complete professionalism. They were discreet, thorough, and kept me informed every step of the way. The evidence they gathered was exactly what my attorney needed.</p>
+      <div class="testimonial-author">— M. T.</div>
+      <div class="testimonial-role">Personal Client, Cleveland</div>
+    </div>
+    <div class="testimonial fade-up">
+      <p>We hired Prama Intel for a workplace fraud investigation. They were methodical, fast, and the report they delivered was airtight. Highly recommend for any business needing reliable investigative work.</p>
+      <div class="testimonial-author">— D. R.</div>
+      <div class="testimonial-role">Business Owner, Akron</div>
+    </div>
+    <div class="testimonial fade-up">
+      <p>I was nervous at first but they made the whole process easy. No judgment — just results. They found the information I needed and were kind throughout. Worth every penny.</p>
+      <div class="testimonial-author">— Anonymous</div>
+      <div class="testimonial-role">Personal Client, Northeast Ohio</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-label fade-up">Get In Touch</div>
+      <h2 class="fade-up">Start with a Free Consultation</h2>
+      <p class="fade-up">All inquiries are handled with complete confidentiality. There is no obligation after your initial consultation. Reach out today and take the first step toward the truth.</p>
+      <div class="contact-detail fade-up">
+        <div class="contact-detail-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.64 2.84 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Phone</strong>
+          <span><a href="tel:+12162603463">(216) 260-FIND (3463)</a></span>
+        </div>
+      </div>
+      <div class="contact-detail fade-up">
+        <div class="contact-detail-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span><a href="mailto:info@pramaintel.com">info@pramaintel.com</a></span>
+        </div>
+      </div>
+      <div class="contact-detail fade-up">
+        <div class="contact-detail-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Location</strong>
+          <span>Cleveland, Ohio — Serving all of Northeast OH</span>
+        </div>
+      </div>
+      <div class="contact-detail fade-up">
+        <div class="contact-detail-icon">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <strong>Hours</strong>
+          <span>Available 24/7 for urgent matters</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form fade-up" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="field">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane" required/>
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" placeholder="(216) 000-0000"/>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" placeholder="you@email.com" required/>
+          </div>
+        </div>
+        <div class="field">
+          <label>Type of Investigation</label>
+          <select>
+            <option value="">Select a service...</option>
+            <option>Surveillance</option>
+            <option>Background Check</option>
+            <option>Infidelity Investigation</option>
+            <option>Corporate / Business</option>
+            <option>Legal Support / Skip Tracing</option>
+            <option>Insurance Fraud</option>
+            <option>Child Custody</option>
+            <option>Digital / OSINT</option>
+            <option>Executive Protection</option>
+            <option>Security Consulting</option>
+            <option>Event Security</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Tell Us About Your Situation</label>
+          <textarea placeholder="Briefly describe what you need help with. All information is kept strictly confidential."></textarea>
+        </div>
+        <p class="form-note">🔒 All submissions are encrypted and 100% confidential. We will never share your information.</p>
+        <button type="submit" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer;font-family:inherit">Send Confidential Inquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo-wrap">
+    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGRlZnM+CiAgICA8Y2xpcFBhdGggaWQ9ImNpcmNDbGlwIj4KICAgICAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MCIvPgogICAgPC9jbGlwUGF0aD4KICA8L2RlZnM+CgogIDwhLS0gQmFja2dyb3VuZCBjaXJjbGUgLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5OSIgZmlsbD0iIzBEMEQwRCIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjEuNSIvPgoKICA8IS0tIFJhZGlhdGluZyByYXlzIC0tPgogIDxnIGNsaXAtcGF0aD0idXJsKCNjaXJjQ2xpcCkiIHN0cm9rZT0iI0Y1QzUxOCIgc3Ryb2tlLXdpZHRoPSIxLjIiIG9wYWNpdHk9IjAuNzUiPgogICAgPGxpbmUgeDE9IjEwMC4wIiB5MT0iNDIuMCIgeDI9IjEwMC4wIiB5Mj0iMTIuMCIvPgogICAgPGxpbmUgeDE9IjExNS4wIiB5MT0iNDQuMCIgeDI9IjEyMi44IiB5Mj0iMTUuMCIvPgogICAgPGxpbmUgeDE9IjEyOS4wIiB5MT0iNDkuOCIgeDI9IjE0NC4wIiB5Mj0iMjMuOCIvPgogICAgPGxpbmUgeDE9IjE0MS4wIiB5MT0iNTkuMCIgeDI9IjE2Mi4yIiB5Mj0iMzcuOCIvPgogICAgPGxpbmUgeDE9IjE1MC4yIiB5MT0iNzEuMCIgeDI9IjE3Ni4yIiB5Mj0iNTYuMCIvPgogICAgPGxpbmUgeDE9IjE1Ni4wIiB5MT0iODUuMCIgeDI9IjE4NS4wIiB5Mj0iNzcuMiIvPgogICAgPGxpbmUgeDE9IjE1OC4wIiB5MT0iMTAwLjAiIHgyPSIxODguMCIgeTI9IjEwMC4wIi8+CiAgICA8bGluZSB4MT0iMTU2LjAiIHkxPSIxMTUuMCIgeDI9IjE4NS4wIiB5Mj0iMTIyLjgiLz4KICAgIDxsaW5lIHgxPSIxNTAuMiIgeTE9IjEyOS4wIiB4Mj0iMTc2LjIiIHkyPSIxNDQuMCIvPgogICAgPGxpbmUgeDE9IjE0MS4wIiB5MT0iMTQxLjAiIHgyPSIxNjIuMiIgeTI9IjE2Mi4yIi8+CiAgICA8bGluZSB4MT0iMTI5LjAiIHkxPSIxNTAuMiIgeDI9IjE0NC4wIiB5Mj0iMTc2LjIiLz4KICAgIDxsaW5lIHgxPSIxMTUuMCIgeTE9IjE1Ni4wIiB4Mj0iMTIyLjgiIHkyPSIxODUuMCIvPgogICAgPGxpbmUgeDE9IjEwMC4wIiB5MT0iMTU4LjAiIHgyPSIxMDAuMCIgeTI9IjE4OC4wIi8+CiAgICA8bGluZSB4MT0iODUuMCIgeTE9IjE1Ni4wIiB4Mj0iNzcuMiIgeTI9IjE4NS4wIi8+CiAgICA8bGluZSB4MT0iNzEuMCIgeTE9IjE1MC4yIiB4Mj0iNTYuMCIgeTI9IjE3Ni4yIi8+CiAgICA8bGluZSB4MT0iNTkuMCIgeTE9IjE0MS4wIiB4Mj0iMzcuOCIgeTI9IjE2Mi4yIi8+CiAgICA8bGluZSB4MT0iNDkuOCIgeTE9IjEyOS4wIiB4Mj0iMjMuOCIgeTI9IjE0NC4wIi8+CiAgICA8bGluZSB4MT0iNDQuMCIgeTE9IjExNS4wIiB4Mj0iMTUuMCIgeTI9IjEyMi44Ii8+CiAgICA8bGluZSB4MT0iNDIuMCIgeTE9IjEwMC4wIiB4Mj0iMTIuMCIgeTI9IjEwMC4wIi8+CiAgICA8bGluZSB4MT0iNDQuMCIgeTE9Ijg1LjAiIHgyPSIxNS4wIiB5Mj0iNzcuMiIvPgogICAgPGxpbmUgeDE9IjQ5LjgiIHkxPSI3MS4wIiB4Mj0iMjMuOCIgeTI9IjU2LjAiLz4KICAgIDxsaW5lIHgxPSI1OS4wIiB5MT0iNTkuMCIgeDI9IjM3LjgiIHkyPSIzNy44Ii8+CiAgICA8bGluZSB4MT0iNzEuMCIgeTE9IjQ5LjgiIHgyPSI1Ni4wIiB5Mj0iMjMuOCIvPgogICAgPGxpbmUgeDE9Ijg1LjAiIHkxPSI0NC4wIiB4Mj0iNzcuMiIgeTI9IjE1LjAiLz4KICA8L2c+CgogIDwhLS0gVHJpYW5nbGUgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIxMDAsMjggMTYyLDEzOCAzOCwxMzgiIGZpbGw9IiMwRDBEMEQiIHN0cm9rZT0iI0Y1QzUxOCIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KCiAgPCEtLSBFeWUgd2hpdGVzIC0tPgogIDxwYXRoIGQ9Ik02NSw5NSBRMTAwLDY1IDEzNSw5NSBRMTAwLDEyNSA2NSw5NSBaIiBmaWxsPSJ3aGl0ZSIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjEiLz4KCiAgPCEtLSBJcmlzIC0tPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9Ijk1IiByPSIxNiIgZmlsbD0iIzBEMEQwRCIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjEuMiIvPgoKICA8IS0tIFB1cGlsIC0tPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9Ijk1IiByPSI4IiBmaWxsPSIjRjVDNTE4Ii8+CgogIDwhLS0gSXJpcyBkZXRhaWwgLS0+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iOTUiIHI9IjExLjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0Y1QzUxOCIgc3Ryb2tlLXdpZHRoPSIwLjciIG9wYWNpdHk9IjAuNSIvPgoKICA8IS0tIEhpZ2hsaWdodCAtLT4KICA8Y2lyY2xlIGN4PSI5NSIgY3k9IjkwIiByPSIyLjUiIGZpbGw9IndoaXRlIiBvcGFjaXR5PSIwLjYiLz4KCiAgPCEtLSBPdXRlciByaW5ncyAtLT4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9Ijk5IiBmaWxsPSJub25lIiBzdHJva2U9IiNGNUM1MTgiIHN0cm9rZS13aWR0aD0iMS41Ii8+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5MyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjVDNTE4IiBzdHJva2Utd2lkdGg9IjAuNSIgb3BhY2l0eT0iMC40Ii8+Cjwvc3ZnPg==" alt="Prama Intel Logo" class="logo-img"/>
+    <div class="logo-text-block">
+      <span class="logo-main">PRAMA<span style="color:var(--white);font-weight:400">INTEL</span></span>
+      <span class="logo-sub">Private Investigations &amp; Security</span>
+    </div>
+  </a>
+      <p>Licensed private investigation &amp; security services in Cleveland, Ohio. A trade name of RWKG LLC. Serving individuals, businesses, and legal professionals throughout Northeast Ohio.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Surveillance</a></li>
+        <li><a href="#services">Background Checks</a></li>
+        <li><a href="#services">Infidelity</a></li>
+        <li><a href="#services">Corporate</a></li>
+        <li><a href="#services">Legal Support</a></li>
+        <li><a href="#services">Skip Tracing</a></li>
+        <li><a href="#services">Security Services</a></li>
+        <li><a href="#services">Executive Protection</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact">Free Consultation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:+12162603463">(216) 260-FIND (3463)</a></li>
+        <li><a href="mailto:info@pramaintel.com">info@pramaintel.com</a></li>
+        <li><a href="#">Cleveland, OH</a></li>
+        <li><a href="#">Available 24/7</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Prama Intel · A trade name of RWKG LLC. All rights reserved.</span>
+    <span>
+      <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="#">Terms of Service</a> &nbsp;·&nbsp;
+      <a href="#">Ohio PI License</a>
+    </span>
+  </div>
+</footer>
+<div class="disclaimer">
+  Prama Intel is a licensed private investigation and security services firm, a trade name of RWKG LLC, operating in compliance with Ohio law. All investigative and security services are conducted lawfully and ethically. Information obtained is for lawful purposes only.
+</div>
+
+<script>
+  // Fade-up on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Mobile nav
+  function openMobileNav() { document.getElementById('mobile-nav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobile-nav').classList.remove('open'); }
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = '✓ Message Sent — We\'ll Be in Touch';
+    btn.style.background = '#2a7a2a';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow =
+      window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+  });
+</script>
+</body>
+</html>
